@@ -23,7 +23,7 @@ const ConnectedList = ({ doList, RemoveList }) =>
         <div className="ListItems">
             <List>
                 {doList.map((el, index) => (
-                    <ListItem key={index.toString()} role={undefined} dense button>
+                    <ListItem key={index.toString()} dense button>
                         <Tooltip title={el}>
                             <ListItemText primary={el} />
                         </Tooltip>

@@ -1,6 +1,6 @@
 import store from "../js/store/index";
-import { addList, removeList } from "../js/action/index"
+import { AddList, RemoveList } from "../js/action/index"
 
 window.store = store;
-window.addList = addList;
-window.removeList = removeList;
+window.AddList = AddList;
+window.RemoveList = RemoveList;

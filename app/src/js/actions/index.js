@@ -1,5 +1,5 @@
 import { ADD_LIST, REMOVE_LIST } from "../constants/action-types"
-export const addList = (payload) => {
+export const AddList = (payload) => {
     return { type: ADD_LIST, payload }
 
 }

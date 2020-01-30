@@ -2,11 +2,11 @@ import React from "react";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { connect } from "react-redux";
-import { addList } from "../actions/index";
+import { AddList } from "../actions/index";
 
-const mapDspatchToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
     return {
-        addList: list => dispatch(addList(list))
+        AddList: list => dispatch(AddList(list))
     }
 }
 
@@ -23,7 +23,7 @@ class ConnectedInput extends React.Component {
         if (!event.target.task.value || !event.target.task.value.trim()) {
             return;
         }
-        this.props.addList(event.target.task.value)
+        this.props.AddList(event.target.task.value)
         this.setState({ value: "" })
     }
     handleChange = (event) => {
@@ -31,23 +31,20 @@ class ConnectedInput extends React.Component {
     }
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div style={{ padding: '5px' }}>
-                        <TextField value={this.state.value} onChange={this.handleChange} name="task" id="standard-basic" label="To Do" />
-                    </div>
-                    <div className="add-button"> <Button type="submit" variant="contained" color="primary">
-                        Add List
+            <form onSubmit={this.handleSubmit}>
+                <div style={{ padding: '5px' }}>
+                    <TextField value={this.state.value} onChange={this.handleChange} name="task" id="standard-basic" label="To Do" />
+                </div>
+                <div className="add-button"> <Button type="submit" variant="contained" color="primary">
+                    Add List
                 </Button>
-                    </div>
-                </form>
-
-            </div>
+                </div>
+            </form>
         )
     }
 }
 
-const ToDoInput = connect(null, mapDspatchToProps)
+const ToDoInput = connect(null, mapDispatchToProps)
     (ConnectedInput)
 
 export default ToDoInput;
