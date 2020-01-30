@@ -1,9 +1,9 @@
 import { ADD_LIST, REMOVE_LIST } from "../constants/action-types"
-export function addList(payload) {
+export const addList = (payload) => {
     return { type: ADD_LIST, payload }
 
 }
-export function RemoveList(payload) {
+export const RemoveList = (payload) => {
     return { type: REMOVE_LIST, payload }
 
 }

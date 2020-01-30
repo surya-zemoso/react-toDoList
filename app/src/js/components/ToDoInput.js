@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { connect } from "react-redux";
 import { addList } from "../actions/index";
 
-function mapDspatchToProps(dispatch) {
+const mapDspatchToProps = dispatch => {
     return {
         addList: list => dispatch(addList(list))
     }
@@ -18,7 +18,7 @@ class ConnectedInput extends React.Component {
         this.state = { value: '' }
 
     }
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
         if (!event.target.task.value || !event.target.task.value.trim()) {
             return;
@@ -26,9 +26,8 @@ class ConnectedInput extends React.Component {
         this.props.addList(event.target.task.value)
         this.setState({ value: "" })
     }
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState({ value: event.target.value })
-        console.log("change detected!", event.target.value)
     }
     render() {
         return (

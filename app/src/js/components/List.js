@@ -12,17 +12,14 @@ import Tooltip from '@material-ui/core/Tooltip';
 const mapStateToProps = state => {
     return { doList: state.doList }
 }
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
     return {
         RemoveList: index => dispatch(RemoveList(index))
     }
 }
 
-const ConnectedList = function ({ doList, RemoveList }) {
-    function handleRemoveList(index) {
-        RemoveList(index);
-    }
-    return (
+const ConnectedList = ({ doList, RemoveList }) =>
+    (
         <div className="ListItems">
             <List>
                 {doList.map((el, index) => (
@@ -33,7 +30,7 @@ const ConnectedList = function ({ doList, RemoveList }) {
 
                         <ListItemSecondaryAction>
                             <Tooltip title="delete">
-                                <IconButton edge="end" onClick={(e) => handleRemoveList(index)} edge="end" aria-label="delete">
+                                <IconButton edge="end" onClick={() => RemoveList(index)} aria-label="delete">
                                     <DeleteIcon />
                                 </IconButton>
                             </Tooltip>
@@ -43,7 +40,7 @@ const ConnectedList = function ({ doList, RemoveList }) {
             </List>
         </div>
     )
-}
+
 
 const ToDoList = connect(mapStateToProps, mapDispatchToProps)
     (ConnectedList);

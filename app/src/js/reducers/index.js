@@ -4,7 +4,7 @@ const initialState = {
     doList: []
 }
 
-function rootReducer(state = initialState, action) {
+const rootReducer = (state = initialState, action) => {
     if (action.type === ADD_LIST) {
         return Object.assign({}, state, { doList: state.doList.concat(action.payload) })
     }
