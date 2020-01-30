@@ -9,8 +9,9 @@ const rootReducer = (state = initialState, action) => {
         return Object.assign({}, state, { doList: state.doList.concat(action.payload) })
     }
     if (action.type === REMOVE_LIST) {
-        state.doList.splice(action.payload, 1);
-        return Object.assign({}, state, { doList: state.doList.slice() })
+        const newToDoList = [...state.doList];
+        newToDoList.splice(action.payload, 1);
+        return Object.assign({}, state, { doList: newToDoList })
     }
     return state;
 }

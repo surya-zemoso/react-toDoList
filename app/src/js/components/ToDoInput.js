@@ -2,11 +2,11 @@ import React from "react";
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { connect } from "react-redux";
-import { AddList } from "../actions/index";
+import { addList } from "../actions/index";
 
 const mapDispatchToProps = dispatch => {
     return {
-        AddList: list => dispatch(AddList(list))
+        addList: list => dispatch(addList(list))
     }
 }
 
@@ -23,7 +23,7 @@ class ConnectedInput extends React.Component {
         if (!event.target.task.value || !event.target.task.value.trim()) {
             return;
         }
-        this.props.AddList(event.target.task.value)
+        this.props.addList(event.target.task.value)
         this.setState({ value: "" })
     }
     handleChange = (event) => {

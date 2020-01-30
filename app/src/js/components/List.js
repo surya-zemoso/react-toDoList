@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { RemoveList } from "../actions/index";
+import { removeList } from "../actions/index";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
@@ -14,11 +14,11 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        RemoveList: index => dispatch(RemoveList(index))
+        removeList: index => dispatch(removeList(index))
     }
 }
 
-const ConnectedList = ({ doList, RemoveList }) =>
+const ConnectedList = ({ doList, removeList }) =>
     (
         <div className="ListItems">
             <List>
@@ -30,7 +30,7 @@ const ConnectedList = ({ doList, RemoveList }) =>
 
                         <ListItemSecondaryAction>
                             <Tooltip title="delete">
-                                <IconButton edge="end" onClick={() => RemoveList(index)} aria-label="delete">
+                                <IconButton edge="end" onClick={() => removeList(index)} aria-label="delete">
                                     <DeleteIcon />
                                 </IconButton>
                             </Tooltip>
